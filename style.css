@@ -1,0 +1,105 @@
+body{
+    margin:0;
+    padding:0;
+    background-color:#eee;
+    font-family: 'Slabo 27px', serif;
+}
+.asideWrap{
+    width:100%;
+    height:50px;
+    position: absolute;
+    display:flex;
+    justify-content: space-between;
+    text-align: center;
+}
+aside h1{
+    font-family: 'Dancing Script', cursive;
+    font-size:40px;
+}
+
+aside h4{
+    cursor: pointer;
+}
+.homeWrap{
+    width:100%;
+    height:100vh;
+}
+
+aside{
+    width:300px;
+    height:100vh;
+    background-color: rgba(255, 255, 255, 0.726);
+    
+}
+
+.sliderWrap{
+    width:100%;
+    height:100vh;
+    
+}
+.sliderWrap img{
+   width:100%;
+   position: relative;
+   top:-100px;
+   z-index: -100;
+}
+.sliderWrap div{
+    position: absolute;
+    font-family: 'Righteous', cursive;
+}
+.sliderWrap h1{
+    font-size:50px;
+    text-transform: uppercase;
+    margin:0;
+}
+.sliderWrap p{
+    margin:0;
+    font-size:25px;
+}
+#tit1{
+    left:1150px;
+    top:550px;
+    color: rgb(24, 24, 24);
+    transform: rotate(270deg);
+    transition: 2s linear;
+    opacity: 0;
+}
+#tit2{
+    left:900px;
+    top:700px;
+    color: rgb(24, 24, 24);
+    transition: 2s ease-in;
+    opacity: 0;
+}
+#tit3{
+    color:#fff;
+    left:1100px;
+    top:100px;
+    transition: 2s linear;
+    opacity: 0;
+}
+#tit3 h1{
+    font-size:40px;
+}
+#tit4{
+    left: 450px;
+    top: 400px;
+    color:#fff;
+    opacity: 0;
+    transition: 2s ease-in;
+}
+#tit5{
+    left:1200px;
+    top:600px;
+    opacity: 0;
+    color: rgb(24, 24, 24);
+    transition: 2s ease-in;
+}
+
+/*------------------------------- info ----------------------------------*/
+
+.infoWrap{
+    width:100%;
+    height:100vh;
+    background-color:#eee;
+}
