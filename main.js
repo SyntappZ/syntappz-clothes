@@ -1,7 +1,7 @@
 let i = 0;
 let images = [];
 let imageTitles = [];
-let time = 6000;
+let time = 5000;
 
 let = title1 = document.getElementById('tit1');
 let = title2 = document.getElementById('tit2');
@@ -73,3 +73,36 @@ function changeImg(){
     
 }
 window.onload = changeImg;
+
+//smooth scroll
+
+function smoothScroll(target, duration){
+    var target = document.querySelector(target);
+    var targetPosition = target.getBoundingClientRect().top;
+    var startingPosition = window.pageYOffset;
+    var distance = targetPosition - startingPosition;
+    var startTime = null;
+
+    function animation(currentTime){
+        if(startTime === null) startTime = currentTime;
+        var timeElapsed = currentTime - startTime;
+        var run = ease(timeElapsed,startingPosition,distance,duration);
+        window.scrollTo(0, run);
+        if(timeElapsed < duration) requestAnimationFrame(animation);
+    }
+    function ease(t, b, c, d) {
+        t /= d/2;
+        if (t < 1) return c/2*t*t + b;
+        t--;
+        return -c/2 * (t*(t-2) - 1) + b;
+    };
+    requestAnimationFrame(animation);
+}
+
+
+var mens = document.querySelector('#mens');
+
+mens.addEventListener('click',(e) =>{
+    e.preventDefault();
+    smoothScroll('#mensWrap', 1000);
+})
