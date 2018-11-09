@@ -1,3 +1,12 @@
+// loading screen
+
+window.addEventListener('load', () => {
+    let loadScreen = document.getElementById('loading');
+    document.body.removeChild(loadScreen);
+});
+
+// picture scroll
+
 let i = 0;
 let images = [];
 let imageTitles = [];
@@ -74,6 +83,8 @@ function changeImg(){
 }
 window.onload = changeImg;
 
+
+
 //smooth scroll
 
 function smoothScroll(target, duration){
@@ -100,9 +111,43 @@ function smoothScroll(target, duration){
 }
 
 
-var mens = document.querySelector('#mens');
+let mens = document.getElementById('mens');
+let womens = document.getElementById('womens');
+let business = document.getElementById('business');
+let sports = document.getElementById('sports');
+let shoes = document.getElementById('shoes');
+let head = document.getElementById('head');
 
+//mens page
 mens.addEventListener('click',(e) =>{
     e.preventDefault();
     smoothScroll('#mensWrap', 1000);
-})
+});
+
+//womans page
+womens.addEventListener('click',(e) =>{
+    e.preventDefault();
+    smoothScroll('#womansWrap', 1500);
+});
+//business page
+business.addEventListener('click',(e) =>{
+    e.preventDefault();
+    smoothScroll('#businessWrap', 1500);
+});
+//sports page
+sports.addEventListener('click',(e) =>{
+    e.preventDefault();
+    smoothScroll('#sportsWrap', 1500);
+});
+//shoes page
+shoes.addEventListener('click',(e) =>{
+    e.preventDefault();
+    smoothScroll('#shoesWrap', 1500);
+});
+//hat page
+head.addEventListener('click',(e) =>{
+    e.preventDefault();
+    smoothScroll('#headWrap', 1500);
+});
+
+
