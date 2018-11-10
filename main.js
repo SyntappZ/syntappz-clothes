@@ -97,7 +97,7 @@ function smoothScroll(target, duration){
     function animation(currentTime){
         if(startTime === null) startTime = currentTime;
         var timeElapsed = currentTime - startTime;
-        var run = ease(timeElapsed,startingPosition,distance,duration);
+        var run = ease(timeElapsed, startingPosition, distance, duration);
         window.scrollTo(0, run);
         if(timeElapsed < duration) requestAnimationFrame(animation);
     }
@@ -127,27 +127,23 @@ mens.addEventListener('click',(e) =>{
 //womans page
 womens.addEventListener('click',(e) =>{
     e.preventDefault();
-    smoothScroll('#womansWrap', 1500);
+    smoothScroll('#womansWrap', 1000);
 });
 //business page
 business.addEventListener('click',(e) =>{
     e.preventDefault();
-    smoothScroll('#businessWrap', 1500);
+    smoothScroll('#businessWrap', 1000);
 });
 //sports page
 sports.addEventListener('click',(e) =>{
     e.preventDefault();
-    smoothScroll('#sportsWrap', 1500);
+    smoothScroll('#sportsWrap', 1000);
 });
 //shoes page
 shoes.addEventListener('click',(e) =>{
     e.preventDefault();
-    smoothScroll('#shoesWrap', 1500);
+    smoothScroll('#shoesWrap', 1000);
 });
-//hat page
-head.addEventListener('click',(e) =>{
-    e.preventDefault();
-    smoothScroll('#headWrap', 1500);
-});
+
 
 
