@@ -100,7 +100,9 @@ function smoothScroll(target, duration){
         var run = ease(timeElapsed, startingPosition, distance, duration);
         window.scrollTo(0, run);
         if(timeElapsed < duration) requestAnimationFrame(animation);
+        
     }
+    
     function ease(t, b, c, d) {
         t /= d/2;
         if (t < 1) return c/2*t*t + b;
@@ -111,39 +113,21 @@ function smoothScroll(target, duration){
 }
 
 
-let mens = document.getElementById('mens');
-let womens = document.getElementById('womens');
-let business = document.getElementById('business');
-let sports = document.getElementById('sports');
-let shoes = document.getElementById('shoes');
-let head = document.getElementById('head');
-
-//mens page
-mens.addEventListener('click',(e) =>{
+let main = document.getElementById('main');
+let lAside = document.getElementById('leftAside');
+let rAside = document.getElementById('rightAside');
+let home = document.querySelector('.homeWrap');
+//main page
+main.addEventListener('click',(e) =>{
     e.preventDefault();
-    smoothScroll('#mensWrap', 1000);
+    lAside.style.left = '-300px';
+    rAside.style.left = '300px';
+    home.style.top = '-150vh';
+    // smoothScroll('#mainWrap', 1000);
+    // setTimeout(animation, 2000);
 });
 
-//womans page
-womens.addEventListener('click',(e) =>{
-    e.preventDefault();
-    smoothScroll('#womansWrap', 1000);
-});
-//business page
-business.addEventListener('click',(e) =>{
-    e.preventDefault();
-    smoothScroll('#businessWrap', 1000);
-});
-//sports page
-sports.addEventListener('click',(e) =>{
-    e.preventDefault();
-    smoothScroll('#sportsWrap', 1000);
-});
-//shoes page
-shoes.addEventListener('click',(e) =>{
-    e.preventDefault();
-    smoothScroll('#shoesWrap', 1000);
-});
+
 
 
 
