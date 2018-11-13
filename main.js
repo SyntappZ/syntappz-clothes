@@ -87,12 +87,7 @@ window.onload = changeImg;
 
 //animations
 
-// let btn1 = document.getElementById('btn1');
-// let btn2 = document.getElementById('btn2');
-// let btn3 = document.getElementById('btn3');
-// let btn4 = document.getElementById('btn4');
-// let btn5 = document.getElementById('btn5');
-// let btn6 = document.getElementById('btn6');
+
 
 
 
@@ -102,31 +97,43 @@ let lA =  document.getElementById("leftAside");
 let rA = document.getElementById("rightAside");
 let cov = document.getElementById("cover");
 let main = document.getElementById("main");
+let mainLinks =  document.getElementById("mainLWrap");
+
 
   function getJackets(){
-      runPageAnim();
+      mainPage();
   }
 
 
-  function runPageAnim() {
+  function mainPage() {
       asideSlide();
-      setTimeout(coverUp, 1300);
-     
-      
+      setTimeout(coverUp, 600);
+      setTimeout(linksOut, 1300);
+     return true
   };
   
   function asideSlide(){
       lA.style.left = "-300px";
       rA.style.right = "-300px";
-      cov.style.top = "-130vh";
   }
   function coverUp(){
-      
-      lorum.style.paddingTop = "30px";
-      lorum.style.opacity = "1";
-  
+    cov.style.top = "-130vh";
   }
-
+  function linksOut(){
+      if(mainPage()){
+        mainLinks.style.paddingLeft = "100px";
+        mainLinks.style.opacity = "1";
+      }
+      else{
+        mainLinks.style.paddingLeft = "0";
+        mainLinks.style.opacity = "0";
+      }
+      
+  }
+function home(){
+    linksOut()
+    alert('clicked')
+}
 
 
 
