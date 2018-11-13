@@ -85,47 +85,47 @@ window.onload = changeImg;
 
 
 
-//smooth scroll
+//animations
 
-function smoothScroll(target, duration){
-    var target = document.querySelector(target);
-    var targetPosition = target.getBoundingClientRect().top;
-    var startingPosition = window.pageYOffset;
-    var distance = targetPosition - startingPosition;
-    var startTime = null;
-
-    function animation(currentTime){
-        if(startTime === null) startTime = currentTime;
-        var timeElapsed = currentTime - startTime;
-        var run = ease(timeElapsed, startingPosition, distance, duration);
-        window.scrollTo(0, run);
-        if(timeElapsed < duration) requestAnimationFrame(animation);
-        
-    }
-    
-    function ease(t, b, c, d) {
-        t /= d/2;
-        if (t < 1) return c/2*t*t + b;
-        t--;
-        return -c/2 * (t*(t-2) - 1) + b;
-    };
-    requestAnimationFrame(animation);
-}
+// let btn1 = document.getElementById('btn1');
+// let btn2 = document.getElementById('btn2');
+// let btn3 = document.getElementById('btn3');
+// let btn4 = document.getElementById('btn4');
+// let btn5 = document.getElementById('btn5');
+// let btn6 = document.getElementById('btn6');
 
 
-let main = document.getElementById('main');
-let lAside = document.getElementById('leftAside');
-let rAside = document.getElementById('rightAside');
-let home = document.querySelector('.homeWrap');
-//main page
-main.addEventListener('click',(e) =>{
-    e.preventDefault();
-    lAside.style.left = '-300px';
-    rAside.style.left = '300px';
-    home.style.top = '-150vh';
-    // smoothScroll('#mainWrap', 1000);
-    // setTimeout(animation, 2000);
-});
+
+
+let linkWrap = document.querySelector('.linkWrap');
+let lA =  document.getElementById("leftAside");
+let rA = document.getElementById("rightAside");
+let cov = document.getElementById("cover");
+let main = document.getElementById("main");
+
+  function getJackets(){
+      runPageAnim();
+  }
+
+
+  function runPageAnim() {
+      asideSlide();
+      setTimeout(coverUp, 1300);
+     
+      
+  };
+  
+  function asideSlide(){
+      lA.style.left = "-300px";
+      rA.style.right = "-300px";
+      cov.style.top = "-130vh";
+  }
+  function coverUp(){
+      
+      lorum.style.paddingTop = "30px";
+      lorum.style.opacity = "1";
+  
+  }
 
 
 
