@@ -18,17 +18,32 @@
     <!--loading end-->
 
     <div id="main">
+        
+        <h2>coats</h2>
+        <h2>business</h2>
+        <h2>casual</h2>
+        <h2>sports</h2>
+        <h2>dresses</h2>
         <div id="mainLWrap" class="linkWrap">
             <h3 onclick="home()" class="btn">home</h3>
-            <h3 class="btn">jackets</h3>
-            <h3  class="btn">coats</h3>
-            <h3  class="btn">business</h3>
-            <h3  class="btn">casual</h3>
-            <h3  class="btn">Shoes</h3>
-            <h3  class="btn">sports</h3>
-            
+            <h3 onclick="coats()"  class="btn">coats</h3>
+            <h3 onclick="business()" class="btn">business</h3>
+            <h3 onclick="casual()" class="btn">casual</h3>
+            <h3 onclick="sports()" class="btn">sports</h3>
+            <h3 onclick="dresses()" class="btn">dresses</h3>
         </div>
-    </div>
+        <div id="coat" class="clothesWrap">
+            <div class="clothesBox">
+                <img src="img/coats/coat1.jpg" alt="coat1">
+            </div>
+            <div class="clothesBox">
+                <img src="img/coats/coat2.jpg" alt="coat2">
+            </div>
+            <div class="clothesBox">
+                <img src="img/coats/coat3.jpg" alt="coat3">
+            </div>
+        </div>
+    </div><!--- main wrap --->
     <div id="cover">
        
                 <aside id="leftAside">
@@ -37,12 +52,13 @@
                             <p class="clothesUnderline">clothes</p>
                         
                         <div class="linkWrap">
-                            <h3 id="btn1" onclick="getJackets()" class="btn">jackets</h3>
-                            <h3 id="btn2" class="btn">coats</h3>
-                            <h3 id="btn3" class="btn">business</h3>
-                            <h3 id="btn4" class="btn">casual</h3>
-                            <h3 id="btn5" class="btn">Shoes</h3>
-                            <h3 id="btn6" class="btn">sports</h3>
+                            
+                            <h3 onclick="getCoats()" class="btn">coats</h3>
+                            <h3 onclick="getBusiness()" class="btn">business</h3>
+                            <h3 onclick="getCasual()" class="btn">casual</h3>
+                            <h3 onclick="getSports()" class="btn">sports</h3>
+                            <h3 onclick="getDresses()" class="btn">dresses</h3>
+
                         </div>
 
                             <div class="env">
