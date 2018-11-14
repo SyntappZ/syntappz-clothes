@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
 let i = 0;
 let images = [];
 let imageTitles = [];
-let time = 5000;
+let time = 4000;
 
 let = title1 = document.getElementById('tit1');
 let = title2 = document.getElementById('tit2');
@@ -97,17 +97,44 @@ let lA =  document.getElementById("leftAside");
 let rA = document.getElementById("rightAside");
 let cov = document.getElementById("cover");
 let main = document.getElementById("main");
-let mainLinks =  document.getElementById("mainLWrap");
+let mainLinks = document.getElementById("mainLWrap");
 let coat = document.getElementById('coat');
+let btn = document.querySelectorAll('.btn');
+let btnArr = Array.from(btn);
 
-  function getCoats(){
-      mainPage();
-      setTimeout(coats, 1700);
-  }
- function coats(){
-    coat.style.left = '300px';
-    coat.style.opacity = '1';
+
+
+btnArr.forEach((e) => {
+    e.addEventListener('click', () => {
+        mainPage();
+        setTimeout(coats, 1700);
+        setTimeout(cBoxAppear, 1300);
+    })
+})
+
+
+
+
+ let cBox = document.querySelectorAll('.clothesBox');
+ let cBoxArr = Array.from(cBox);
+
+ function cBoxAppear(){//needs fixing------------------
+     cBoxArr.forEach((e) => {
+        e.style.opacity = '1';
+     })
  }
+
+ function coatsIn(){
+    coat.style.left = '300px';
+    
+ }
+ function coatsOut(){
+    coat.style.left = '2000px';
+    
+ }
+ function business(){
+
+}
 
   function mainPage() {
       asideOut();
