@@ -98,41 +98,53 @@ let rA = document.getElementById("rightAside");
 let cov = document.getElementById("cover");
 let main = document.getElementById("main");
 let mainLinks =  document.getElementById("mainLWrap");
+let coat = document.getElementById('coat');
 
-
-  function getJackets(){
+  function getCoats(){
       mainPage();
+      setTimeout(coats, 1700);
   }
-
+ function coats(){
+    coat.style.left = '300px';
+    coat.style.opacity = '1';
+ }
 
   function mainPage() {
-      asideSlide();
+      asideOut();
       setTimeout(coverUp, 600);
       setTimeout(linksOut, 1300);
-     return true
+     
   };
   
-  function asideSlide(){
+  function asideOut(){
       lA.style.left = "-300px";
       rA.style.right = "-300px";
   }
+  function asideIn(){
+    lA.style.left = "0";
+    rA.style.right = "0";
+}
+
+  //cover
   function coverUp(){
     cov.style.top = "-130vh";
   }
+  function coverDown(){
+    cov.style.top = "0";
+  }
+  //links
   function linksOut(){
-      if(mainPage()){
         mainLinks.style.paddingLeft = "100px";
         mainLinks.style.opacity = "1";
-      }
-      else{
-        mainLinks.style.paddingLeft = "0";
-        mainLinks.style.opacity = "0";
-      }
-      
+  }
+  function linksIn(){
+    mainLinks.style.paddingLeft = "0";
+    mainLinks.style.opacity = "0";
   }
 function home(){
-    linksOut()
-    alert('clicked')
+    linksIn();
+    setTimeout(coverDown, 600);
+    setTimeout(asideIn, 1300);
 }
 
 
