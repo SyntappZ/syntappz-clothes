@@ -170,9 +170,9 @@ body{
     justify-content: space-around;
     align-items:center;
     /* border: #000 solid 3px; */
-    transition-delay: 1.2s;
+    
     /* background-color:red; */
-    display: none;
+    
 }
 
 .clothesBox{

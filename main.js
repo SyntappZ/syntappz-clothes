@@ -92,175 +92,138 @@ window.onload = changeImg;
 
 
 
-let linkWrap = document.querySelector('.linkWrap');
-let lA =  document.getElementById("leftAside");
-let rA = document.getElementById("rightAside");
-let cov = document.getElementById("cover");
+
+
 let main = document.getElementById("main");
-let mainLinks = document.getElementById("mainLWrap");
-let coat = document.getElementById('coat');
-let busi = document.getElementById('business');
-let btn = document.querySelectorAll('.btn');
-
-let btnArr = Array.from(btn);
 
 
+let btn2 = document.getElementsByClassName('.btn2');
+let imgOne = document.getElementById('imgOne');
+let imgTwo = document.getElementById('imgTwo');
+let imgThree = document.getElementById('imgThree');
+
+let imgBox1 = [];
+imgBox1[0] = "img/business/busi1.jpg";
+imgBox1[1] = "img/casual/cas1.jpg";
+imgBox1[2] = "img/sports/sports1.jpg";
+imgBox1[3] = "img/dresses/dress1.jpg";
 
 
-btnArr.forEach((e) => {
-    e.addEventListener('click', () => {
-        if(e === btnArr[0]){
-            mainPage();
-            coats();
-            setTimeout(cBoxAppear, 2000)
-        }
-        if(e === btnArr[1]){
-            mainPage();
-            business();
-            setTimeout(cBoxAppear, 2000)
-        }
-        
+
+let imgBox2 = [];
+imgBox2[0] = "img/business/busi2.jpg";
+imgBox2[1] = "img/casual/cas2.jpg";
+imgBox2[2] = "img/sports/sports2.jpg";
+imgBox2[3] = "img/dresses/dress2.jpg";
+
+
+
+let imgBox3 = [];
+imgBox3[0] = "img/business/busi3.jpg";
+imgBox3[1] = "img/casual/cas3.jpg";
+imgBox3[2] = "img/sports/sports3.jpg";
+imgBox3[3] = "img/dresses/dress3.jpg";
+
+let leftAside =  document.getElementById("leftAside");
+let rightAside = document.getElementById("rightAside");
+let cover = document.getElementById("cover");
+let btn = document.getElementsByClassName('btn');
+
+
+
+let asideOut = '-300px';
+let asideIn = '0';
+let timeFirst = 400;
+let timeSecond = 1000;
+let timeThird = 1600;
+let timeForth = 2300;
+
+
+   for(let j = 0; j < btn.length; j++){
+    btn[j].addEventListener('click', () => {
+        asides(asideOut);
+       setTimeout(imgCover, timeFirst);
+       setTimeout(mainLinks, timeSecond);
+       setTimeout(clothesBoxApearence.bind(null, '1', 'scale(1)'), timeThird);
+       if(btn[j] === btn[1]){
+        imgOnePicker(imgBox1[0])
+        imgTwoPicker(imgBox2[0])
+        imgThreePicker(imgBox3[0])
+       }
+       if(btn[j] === btn[2]){
+        imgOnePicker(imgBox1[1])
+        imgTwoPicker(imgBox2[1])
+        imgThreePicker(imgBox3[1])
+       }
+       if(btn[j] === btn[3]){
+        imgOnePicker(imgBox1[2])
+        imgTwoPicker(imgBox2[2])
+        imgThreePicker(imgBox3[2])
+       }
+       if(btn[j] === btn[4]){
+        imgOnePicker(imgBox1[3])
+        imgTwoPicker(imgBox2[3])
+        imgThreePicker(imgBox3[3])
+       }
     })
-})
+   }
 
 
 
-
- let cBox = document.querySelectorAll('.clothesBox');
- let cBoxArr = Array.from(cBox);
-
- function cBoxAppear(){
-     cBoxArr.forEach((e) => {
-        e.style.transform = 'scale(1)';
-        e.style.opacity = '1';
+function clothesBoxApearence(op, scale){
+    let clothesBox = document.getElementsByClassName('clothesBox');
+    for(let x = 0; x < clothesBox.length; x++){
+        clothesBox[x].style.opacity = op;
+        clothesBox[x].style.transform = scale;
+    }
         
-     })
- }
- function cBoxDisappear(){
-    cBoxArr.forEach((e) => {
-       e.style.transform = 'scale(0.9)';
-       e.style.opacity = '0';
-    })
 }
 
-let titleWrap = document.querySelector('.titleWrap');
-let infoWrap = document.querySelector('.infoWrap');
-let cWrap = document.querySelectorAll('.clothesWrap');
-let cWrapArr = Array.from(cWrap);
-
-
- 
-
- function titleInfo(){
-     titleWrap.style.opacity = '1';
-     titleWrap.style.top = '40px';
-     infoWrap.style.opacity = '1';
-     infoWrap.style.top = '850px';
- }
- function titleInfoClose(){
-    titleWrap.style.opacity = '0';
-    titleWrap.style.top = '0';
-    infoWrap.style.opacity = '0';
-    infoWrap.style.top = '870px';
-    setTimeout(removeAllTitle, 1000);
+function asides(aside){
+    this.aside = aside;
+    leftAside.style.left = aside;
+    rightAside.style.right = aside;
 }
 
-let btn2 = document.querySelectorAll('.btn2');
-let btnArr2 = Array.from(btn2);
 
- btnArr2.forEach((e)=>{
-     e.addEventListener('click', ()=>{
-         if(e === btnArr2[1]){
-            mainClose();
-            coats();
-            setTimeout(cBoxAppear, 2000);
-            
-         }
-         if(e === btnArr2[2]){
-            mainClose();
-            business();
-            setTimeout(cBoxAppear, 2000);
-            
-         }
-     })
- })
-
- let mainTitles = document.querySelectorAll('.titleWrap h2');
- let mainTitlesArr = Array.from(mainTitles);
- function removeAllTitle(){//do the same with the info box p elements
-    for(let i = 0; i < mainTitlesArr.length; i++){
-        mainTitlesArr[i].style.display = 'none';
+function imgCover(){
+    if(cover.style.top === '-140vh'){
+        cover.style.top = '0';
+    }else{
+        cover.style.top = '-140vh';
     }
 }
- let info = document.querySelectorAll('.infoBox p');//needs fixing
- let infoBox = Array.from(info);
 
- console.log(infoBox[0])
 
- function coats(){
-    coat.style.display = 'block';
-    setTimeout(titleInfo, 2300);
-    mainTitlesArr[0].style.display = 'inline';
+
+function mainLinks(){
+let mLinks = document.getElementById("mainLWrap");
+if(mLinks.style.opacity === '1'){
+    mLinks.style.opacity = '0';
+    mLinks.style.paddingLeft = '0';
+}else{
+    mLinks.style.opacity = '1';
+    mLinks.style.paddingLeft = '100px';
 }
- function business(){
-    busi.style.display = 'block';
-    setTimeout(titleInfo, 2300);
-    mainTitlesArr[1].style.display = 'inline';
+    
 }
-
-
-  function mainPage() {
-      asideOut();
-      setTimeout(coverUp, 600);
-      setTimeout(linksOut, 1300);
-     
-  };
-  function mainClose(){
-    titleInfoClose();
-    setTimeout(cBoxDisappear, 600);
-    setTimeout(removeAllClothesWrap, 1000);
-
-  }
-  function removeAllClothesWrap(){
-    cWrapArr.forEach((e) => {
-        e.style.display = 'none';
-    });
-  }
-
-  
-  function asideOut(){
-      lA.style.left = "-300px";
-      rA.style.right = "-300px";
-  }
-  function asideIn(){
-    lA.style.left = "0";
-    rA.style.right = "0";
-}
-
-  //cover
-  function coverUp(){
-    cov.style.top = "-130vh";
-  }
-  function coverDown(){
-    cov.style.top = "0";
-  }
-  //links
-  function linksOut(){
-    mainLinks.style.paddingLeft = "100px";
-    mainLinks.style.opacity = "1";
-  }
-  function linksIn(){
-    mainLinks.style.paddingLeft = "0";
-    mainLinks.style.opacity = "0";
-  }
-  
 function home(){
-    linksIn();
-    mainClose();
-    setTimeout(coverDown, 1200);
-    setTimeout(asideIn, 2000);
+    clothesBoxApearence('0', 'scale(0.9)')
+    setTimeout(mainLinks, timeFirst);
+    setTimeout(imgCover, timeSecond);
+    setTimeout(asides.bind(null, asideIn), timeThird);
+   
 }
 
-
-
-
+function imgOnePicker(img1){
+    this.img1 = img1;
+    imgOne.src = img1;
+}
+function imgTwoPicker(img2){
+    this.img2 = img2;
+    imgTwo.src = img2;
+}
+function imgThreePicker(img3){
+    this.img3 = img3;
+    imgThree.src = img3;
+}
