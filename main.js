@@ -99,16 +99,27 @@ let cov = document.getElementById("cover");
 let main = document.getElementById("main");
 let mainLinks = document.getElementById("mainLWrap");
 let coat = document.getElementById('coat');
+let busi = document.getElementById('business');
 let btn = document.querySelectorAll('.btn');
+
 let btnArr = Array.from(btn);
+
 
 
 
 btnArr.forEach((e) => {
     e.addEventListener('click', () => {
-        mainPage();
-        setTimeout(coats, 1700);
-        setTimeout(cBoxAppear, 1300);
+        if(e === btnArr[0]){
+            mainPage();
+            coats();
+            setTimeout(cBoxAppear, 2000)
+        }
+        if(e === btnArr[1]){
+            mainPage();
+            business();
+            setTimeout(cBoxAppear, 2000)
+        }
+        
     })
 })
 
@@ -118,23 +129,85 @@ btnArr.forEach((e) => {
  let cBox = document.querySelectorAll('.clothesBox');
  let cBoxArr = Array.from(cBox);
 
- function cBoxAppear(){//needs fixing------------------
+ function cBoxAppear(){
      cBoxArr.forEach((e) => {
+        e.style.transform = 'scale(1)';
         e.style.opacity = '1';
+        
      })
  }
-
- function coatsIn(){
-    coat.style.left = '300px';
-    
- }
- function coatsOut(){
-    coat.style.left = '2000px';
-    
- }
- function business(){
-
+ function cBoxDisappear(){
+    cBoxArr.forEach((e) => {
+       e.style.transform = 'scale(0.9)';
+       e.style.opacity = '0';
+    })
 }
+
+let titleWrap = document.querySelector('.titleWrap');
+let infoWrap = document.querySelector('.infoWrap');
+let cWrap = document.querySelectorAll('.clothesWrap');
+let cWrapArr = Array.from(cWrap);
+
+
+ 
+
+ function titleInfo(){
+     titleWrap.style.opacity = '1';
+     titleWrap.style.top = '40px';
+     infoWrap.style.opacity = '1';
+     infoWrap.style.top = '850px';
+ }
+ function titleInfoClose(){
+    titleWrap.style.opacity = '0';
+    titleWrap.style.top = '0';
+    infoWrap.style.opacity = '0';
+    infoWrap.style.top = '870px';
+    setTimeout(removeAllTitle, 1000);
+}
+
+let btn2 = document.querySelectorAll('.btn2');
+let btnArr2 = Array.from(btn2);
+
+ btnArr2.forEach((e)=>{
+     e.addEventListener('click', ()=>{
+         if(e === btnArr2[1]){
+            mainClose();
+            coats();
+            setTimeout(cBoxAppear, 2000);
+            
+         }
+         if(e === btnArr2[2]){
+            mainClose();
+            business();
+            setTimeout(cBoxAppear, 2000);
+            
+         }
+     })
+ })
+
+ let mainTitles = document.querySelectorAll('.titleWrap h2');
+ let mainTitlesArr = Array.from(mainTitles);
+ function removeAllTitle(){//do the same with the info box p elements
+    for(let i = 0; i < mainTitlesArr.length; i++){
+        mainTitlesArr[i].style.display = 'none';
+    }
+}
+ let info = document.querySelectorAll('.infoBox p');//needs fixing
+ let infoBox = Array.from(info);
+
+ console.log(infoBox[0])
+
+ function coats(){
+    coat.style.display = 'block';
+    setTimeout(titleInfo, 2300);
+    mainTitlesArr[0].style.display = 'inline';
+}
+ function business(){
+    busi.style.display = 'block';
+    setTimeout(titleInfo, 2300);
+    mainTitlesArr[1].style.display = 'inline';
+}
+
 
   function mainPage() {
       asideOut();
@@ -142,6 +215,18 @@ btnArr.forEach((e) => {
       setTimeout(linksOut, 1300);
      
   };
+  function mainClose(){
+    titleInfoClose();
+    setTimeout(cBoxDisappear, 600);
+    setTimeout(removeAllClothesWrap, 1000);
+
+  }
+  function removeAllClothesWrap(){
+    cWrapArr.forEach((e) => {
+        e.style.display = 'none';
+    });
+  }
+
   
   function asideOut(){
       lA.style.left = "-300px";
@@ -161,17 +246,19 @@ btnArr.forEach((e) => {
   }
   //links
   function linksOut(){
-        mainLinks.style.paddingLeft = "100px";
-        mainLinks.style.opacity = "1";
+    mainLinks.style.paddingLeft = "100px";
+    mainLinks.style.opacity = "1";
   }
   function linksIn(){
     mainLinks.style.paddingLeft = "0";
     mainLinks.style.opacity = "0";
   }
+  
 function home(){
     linksIn();
-    setTimeout(coverDown, 600);
-    setTimeout(asideIn, 1300);
+    mainClose();
+    setTimeout(coverDown, 1200);
+    setTimeout(asideIn, 2000);
 }
 
 
