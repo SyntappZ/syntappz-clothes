@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
 let i = 0;
 let images = [];
 let imageTitles = [];
-let time = 4000;
+let time = 5000;
 
 let = title1 = document.getElementById('tit1');
 let = title2 = document.getElementById('tit2');
