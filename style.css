@@ -108,26 +108,26 @@ body{
     top:0;
     left:0;
 }
-.infoWrap{
+#infoWrap{
     display:flex;
     position: absolute;
     left:330px;
-    top:880px;
+    bottom:30px;
     width:1470px;
     height:50px;
     justify-content: space-between;
     transition:.6s ease-in-out;
     opacity:0;
+    
 }
 .infoBox{
     width:440px;
     height: 50px;
     text-align: center;
     font-family: 'Exo 2', sans-serif;
+    
 }
-.price{
-    font-style: italic;
-}
+
 
 #mainLWrap{
     margin:0;
@@ -143,23 +143,25 @@ body{
     color:rgb(102, 101, 101);
 }
 
-.titleWrap{
+#titleWrap{
+    width:150px;
+    height:50px;
     position: absolute;
-    top:0;
     left:0;
     right:0;
+    line-height: 50px;
+    text-align:center;
+    top:0;
     margin:auto;
-    transition: .6s ease-in-out;
     opacity: 0;
+    transition: .6s ease-in-out;
+    
 }
-#main h2{
-    margin:0 auto;
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    display:none;
+#pageTitle{
+    padding:0;
+    margin:0;
 }
+
 .clothesWrap{
     width:80%;
     height:100vh;
@@ -169,10 +171,7 @@ body{
     display:flex;
     justify-content: space-around;
     align-items:center;
-    /* border: #000 solid 3px; */
-    
-    /* background-color:red; */
-    
+   
 }
 
 .clothesBox{
@@ -190,10 +189,10 @@ body{
     box-shadow: 5px 5px 10px rgba(95, 95, 95, 0.418);
 }
 .clothesBox img{
-  width:100%;
-  height: 100%;
-  transition:.5s ease-in-out;
-  cursor: pointer;
+    width:100%;
+    height: 100%;
+    transition:.5s ease-in-out;
+    cursor: pointer;
   
 }
 
@@ -290,7 +289,9 @@ aside h3{
     margin-top:100px;
     font-family: 'Righteous', cursive;
 }
-
+aside h3:hover{
+    color:rgb(136, 134, 134);
+}
 
 
 

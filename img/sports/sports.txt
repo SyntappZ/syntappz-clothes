@@ -1,3 +1,3 @@
-1 = Activewear Hoodie Viking Sweater Crophood.
-2 = training jacket.
-3 = grey gym king tracksuit mens
+1 = Activewear Hoodie Viking Sweater Crophood - £90.
+2 = training jacket - £45.
+3 = grey gym king tracksuit mens - £75.

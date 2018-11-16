@@ -85,19 +85,10 @@ window.onload = changeImg;
 
 
 
-//animations
 
 
 
 
-
-
-
-
-let main = document.getElementById("main");
-
-
-let btn2 = document.getElementsByClassName('.btn2');
 let imgOne = document.getElementById('imgOne');
 let imgTwo = document.getElementById('imgTwo');
 let imgThree = document.getElementById('imgThree');
@@ -124,11 +115,13 @@ imgBox3[1] = "img/casual/cas3.jpg";
 imgBox3[2] = "img/sports/sports3.jpg";
 imgBox3[3] = "img/dresses/dress3.jpg";
 
+
+
 let leftAside =  document.getElementById("leftAside");
 let rightAside = document.getElementById("rightAside");
 let cover = document.getElementById("cover");
 let btn = document.getElementsByClassName('btn');
-
+let info = document.getElementsByClassName('info');
 
 
 let asideOut = '-300px';
@@ -138,32 +131,76 @@ let timeSecond = 1000;
 let timeThird = 1600;
 let timeForth = 2300;
 
+//coats
+let coatsInfo = [];
+coatsInfo[0] = "Black Midi Belted Padded Coat - £250.";
+coatsInfo[1] = "Men's Dark Navy Alpaca-Wool Blend Overcoat - £125.";
+coatsInfo[2] = "Roxi Large Pocket Belted Coat - £270.";
+
+//business
+let busiInfo = [];
+busiInfo[0] = "Women's Navy One-Button Wool Suit - £400.";
+busiInfo[1] = "Men's Slim-Fit Light Navy Wool - £375.";
+busiInfo[2] = "Men's Black Double-Breasted Wool Blazer - £275.";
+
+//casual
+let casInfo = [];
+casInfo[0] = "Etoni Stud Detail Knitted Jumper - £75.";
+casInfo[1] = "Hailey V-Neck Blouse - £55.";
+casInfo[2] = "Men's Navy Wool Sweater With Multi-Coloured Stripes - £80.";
+
+//sports
+let sportsInfo = [];
+sportsInfo[0] = "Activewear Hoodie Viking Sweater Crophood - £90.";
+sportsInfo[1] = "training jacket - £45.";
+sportsInfo[2] = "grey gym king tracksuit mens - £75";
+
+//dresses
+let dressInfo = [];
+dressInfo[0] = "Jenny Yoo Women's Charlie Ruffle Bodice Gown Dress - £210.";
+dressInfo[1] = "Womens Sleevless Round Neck Multicolour Mini Dress - £120.";
+dressInfo[2] = "Junior Short Sleeve Lace Dress - £80.";
+
+console.log(sportsInfo)
+
+function infoChooser(info1, info2, info3){
+    this.info1 = info1;
+    this.info2 = info2;
+    this.info3 = info3;
+    info[0].innerHTML = info1;
+    info[1].innerHTML = info2;
+    info[2].innerHTML = info3;
+}
+
+
 
    for(let j = 0; j < btn.length; j++){
     btn[j].addEventListener('click', () => {
+        
         asides(asideOut);
        setTimeout(imgCover, timeFirst);
        setTimeout(mainLinks, timeSecond);
        setTimeout(clothesBoxApearence.bind(null, '1', 'scale(1)'), timeThird);
+       setTimeout(titleAndInfo, timeForth);
        if(btn[j] === btn[1]){
-        imgOnePicker(imgBox1[0])
-        imgTwoPicker(imgBox2[0])
-        imgThreePicker(imgBox3[0])
+        businessBtn()
+        chooseHeader('business');
+        infoChooser(busiInfo[0],busiInfo[1],busiInfo[2]);
        }
        if(btn[j] === btn[2]){
-        imgOnePicker(imgBox1[1])
-        imgTwoPicker(imgBox2[1])
-        imgThreePicker(imgBox3[1])
+        casualBtn()
+        chooseHeader('casual');
+        infoChooser(casInfo[0],casInfo[1],casInfo[2]);
        }
        if(btn[j] === btn[3]){
-        imgOnePicker(imgBox1[2])
-        imgTwoPicker(imgBox2[2])
-        imgThreePicker(imgBox3[2])
+        sportsBtn();
+        chooseHeader('sports');
+        infoChooser(sportsInfo[0],sportsInfo[1],sportsInfo[2]);
        }
        if(btn[j] === btn[4]){
-        imgOnePicker(imgBox1[3])
-        imgTwoPicker(imgBox2[3])
-        imgThreePicker(imgBox3[3])
+        dressesBtn()
+        chooseHeader('dresses');
+        infoChooser(dressInfo[0],dressInfo[1],dressInfo[2]);
        }
     })
    }
@@ -198,21 +235,51 @@ function imgCover(){
 
 function mainLinks(){
 let mLinks = document.getElementById("mainLWrap");
-if(mLinks.style.opacity === '1'){
-    mLinks.style.opacity = '0';
-    mLinks.style.paddingLeft = '0';
-}else{
-    mLinks.style.opacity = '1';
-    mLinks.style.paddingLeft = '100px';
-}
+    if(mLinks.style.opacity === '1'){
+        mLinks.style.opacity = '0';
+        mLinks.style.paddingLeft = '0';
+    }else{
+        mLinks.style.opacity = '1';
+        mLinks.style.paddingLeft = '100px';
+    }
     
 }
+
+let titleWrap = document.getElementById('titleWrap');
+let pageTitleName = document.getElementById('pageTitle');
+let infoWrap = document.getElementById('infoWrap');
+
+
+function titleAndInfo(){
+    if(infoWrap.style.opacity === '1' &&  titleWrap.style.opacity === '1'){
+        titleWrap.style.top = '0';
+        titleWrap.style.opacity = '0';
+        infoWrap.style.bottom = '30px';
+        infoWrap.style.opacity = '0';
+    }else{
+        titleWrap.style.top = '40px';
+        titleWrap.style.opacity = '1';
+        infoWrap.style.bottom = '70px';
+        infoWrap.style.opacity = '1';
+    }
+}
+
+
+function chooseHeader(name){
+    this.name = name;
+    pageTitleName.innerHTML = name;
+}
+
+
+
+
+
 function home(){
-    clothesBoxApearence('0', 'scale(0.9)')
-    setTimeout(mainLinks, timeFirst);
-    setTimeout(imgCover, timeSecond);
-    setTimeout(asides.bind(null, asideIn), timeThird);
-   
+    titleAndInfo();
+    setTimeout(clothesBoxApearence.bind(null, '0', 'scale(0.9)'), timeFirst);
+    setTimeout(mainLinks, timeSecond);
+    setTimeout(imgCover, timeThird);
+    setTimeout(asides.bind(null, asideIn), timeForth);
 }
 
 function imgOnePicker(img1){
@@ -227,3 +294,62 @@ function imgThreePicker(img3){
     this.img3 = img3;
     imgThree.src = img3;
 }
+
+
+//---buttons----
+
+function coatsBtn(){
+    imgOne.src="img/coats/coat1.jpg";
+    imgTwo.src="img/coats/coat2.jpg";
+    imgThree.src="img/coats/coat3.jpg";
+}
+ function businessBtn(){
+    imgOnePicker(imgBox1[0]);
+    imgTwoPicker(imgBox2[0]);
+    imgThreePicker(imgBox3[0]);
+ }
+ function casualBtn(){
+    imgOnePicker(imgBox1[1]);
+    imgTwoPicker(imgBox2[1]);
+    imgThreePicker(imgBox3[1]);
+ }
+ function sportsBtn(){
+    imgOnePicker(imgBox1[2])
+    imgTwoPicker(imgBox2[2])
+    imgThreePicker(imgBox3[2])
+ }
+ function dressesBtn(){
+    imgOnePicker(imgBox1[3])
+    imgTwoPicker(imgBox2[3])
+    imgThreePicker(imgBox3[3])
+ }
+
+
+
+let btn2 = document.getElementsByClassName('btn2');
+for(let a = 0; a < btn2.length; a++){
+    btn2[a].addEventListener('click', () => {
+        if(btn2[a] != btn2[0]){
+            setTimeout(clothesBoxApearence.bind(null, '0', 'scale(0.9)'), timeSecond);
+            setTimeout(clothesBoxApearence.bind(null, '1', 'scale(1)'), timeThird);
+            if(btn2[a] === btn2[1]){
+                coatsBtn();
+            }
+            if(btn2[a] === btn2[2]){
+                businessBtn();
+                
+            }
+            if(btn2[a] === btn2[3]){
+                casualBtn();
+            }
+            if(btn2[a] === btn2[4]){
+                sportsBtn();
+            }
+            if(btn2[a] === btn2[5]){
+                dressesBtn();
+            }
+        }
+    })
+   }
+
+
