@@ -129,7 +129,7 @@ let asideIn = '0';
 let timeFirst = 400;
 let timeSecond = 1000;
 let timeThird = 1600;
-let timeForth = 2300;
+let timeFourth = 2000;
 
 //coats
 let coatsInfo = [];
@@ -147,7 +147,7 @@ busiInfo[2] = "Men's Black Double-Breasted Wool Blazer - £275.";
 let casInfo = [];
 casInfo[0] = "Etoni Stud Detail Knitted Jumper - £75.";
 casInfo[1] = "Hailey V-Neck Blouse - £55.";
-casInfo[2] = "Men's Navy Wool Sweater With Multi-Coloured Stripes - £80.";
+casInfo[2] = "Men's Navy Wool Sweater With Coloured Stripes - £80.";
 
 //sports
 let sportsInfo = [];
@@ -157,16 +157,13 @@ sportsInfo[2] = "grey gym king tracksuit mens - £75";
 
 //dresses
 let dressInfo = [];
-dressInfo[0] = "Jenny Yoo Women's Charlie Ruffle Bodice Gown Dress - £210.";
-dressInfo[1] = "Womens Sleevless Round Neck Multicolour Mini Dress - £120.";
+dressInfo[0] = "Women's Charlie Ruffle Bodice Gown Dress - £210.";
+dressInfo[1] = "Womens Sleevless Multicolour Mini Dress - £120.";
 dressInfo[2] = "Junior Short Sleeve Lace Dress - £80.";
 
-console.log(sportsInfo)
+
 
 function infoChooser(info1, info2, info3){
-    this.info1 = info1;
-    this.info2 = info2;
-    this.info3 = info3;
     info[0].innerHTML = info1;
     info[1].innerHTML = info2;
     info[2].innerHTML = info3;
@@ -181,7 +178,7 @@ function infoChooser(info1, info2, info3){
        setTimeout(imgCover, timeFirst);
        setTimeout(mainLinks, timeSecond);
        setTimeout(clothesBoxApearence.bind(null, '1', 'scale(1)'), timeThird);
-       setTimeout(titleAndInfo, timeForth);
+       setTimeout(titleAndInfo, timeFourth);
        if(btn[j] === btn[1]){
         businessBtn()
         chooseHeader('business');
@@ -217,7 +214,6 @@ function clothesBoxApearence(op, scale){
 }
 
 function asides(aside){
-    this.aside = aside;
     leftAside.style.left = aside;
     rightAside.style.right = aside;
 }
@@ -266,7 +262,6 @@ function titleAndInfo(){
 
 
 function chooseHeader(name){
-    this.name = name;
     pageTitleName.innerHTML = name;
 }
 
@@ -279,19 +274,16 @@ function home(){
     setTimeout(clothesBoxApearence.bind(null, '0', 'scale(0.9)'), timeFirst);
     setTimeout(mainLinks, timeSecond);
     setTimeout(imgCover, timeThird);
-    setTimeout(asides.bind(null, asideIn), timeForth);
+    setTimeout(asides.bind(null, asideIn), timeFourth);
 }
 
 function imgOnePicker(img1){
-    this.img1 = img1;
     imgOne.src = img1;
 }
 function imgTwoPicker(img2){
-    this.img2 = img2;
     imgTwo.src = img2;
 }
 function imgThreePicker(img3){
-    this.img3 = img3;
     imgThree.src = img3;
 }
 
@@ -330,26 +322,37 @@ let btn2 = document.getElementsByClassName('btn2');
 for(let a = 0; a < btn2.length; a++){
     btn2[a].addEventListener('click', () => {
         if(btn2[a] != btn2[0]){
-            setTimeout(clothesBoxApearence.bind(null, '0', 'scale(0.9)'), timeSecond);
+            titleAndInfo()
+            setTimeout(clothesBoxApearence.bind(null, '0', 'scale(0.9)'), timeFirst);
             setTimeout(clothesBoxApearence.bind(null, '1', 'scale(1)'), timeThird);
+            setTimeout(titleAndInfo, timeFourth);
             if(btn2[a] === btn2[1]){
-                coatsBtn();
+               setTimeout(coatsBtn, timeSecond);
+               setTimeout(chooseHeader.bind(null, 'coats'), timeSecond);
+               setTimeout(infoChooser.bind(null, coatsInfo[0],coatsInfo[1],coatsInfo[2]), timeSecond);
             }
             if(btn2[a] === btn2[2]){
-                businessBtn();
-                
+                setTimeout(businessBtn, timeSecond);
+                setTimeout(chooseHeader.bind(null, 'business'), timeSecond);
+                setTimeout(infoChooser.bind(null, busiInfo[0],busiInfo[1],busiInfo[2]), timeSecond);
             }
             if(btn2[a] === btn2[3]){
-                casualBtn();
+                setTimeout(casualBtn, timeSecond);
+                setTimeout(chooseHeader.bind(null, 'casual'), timeSecond);
+                setTimeout(infoChooser.bind(null, casInfo[0],casInfo[1],casInfo[2]), timeSecond);
             }
             if(btn2[a] === btn2[4]){
-                sportsBtn();
+                setTimeout(sportsBtn, timeSecond);
+                setTimeout(chooseHeader.bind(null, 'sports'), timeSecond);
+                setTimeout(infoChooser.bind(null, sportsInfo[0],sportsInfo[1],sportsInfo[2]), timeSecond);
             }
             if(btn2[a] === btn2[5]){
-                dressesBtn();
+                setTimeout(dressesBtn, timeSecond);
+                setTimeout(chooseHeader.bind(null, 'dresses'), timeSecond);
+                setTimeout(infoChooser.bind(null, dressInfo[0],dressInfo[1],dressInfo[2]), timeSecond);
             }
         }
     })
-   }
+}
 
 
