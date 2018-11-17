@@ -333,23 +333,18 @@ aside h3:hover{
     top:550px;
     color: rgb(24, 24, 24);
     transform: rotate(270deg);
-    transition: 2s linear;
-    opacity: 0;
 }
 #tit2{
     left:900px;
     top:700px;
     color: rgb(24, 24, 24);
-    transition: 2s ease-in;
-    opacity: 0;
+    
 }
 #tit3{
     color:#fff;
     left:1100px;
     top:100px;
-    transition: 2s linear;
-    opacity: 0;
-    filter: grayscale(100%);
+   
 }
 #tit3 h1{
     font-size:40px;
@@ -358,16 +353,16 @@ aside h3:hover{
     left: 450px;
     top: 400px;
     color:#fff;
-    opacity: 0;
-    transition: 2s ease-in;
-    filter: grayscale(100%);
+    
 }
 #tit5{
     left:1200px;
     top:600px;
-    opacity: 0;
     color: rgb(24, 24, 24);
-    transition: 2s ease-in;
-    filter: grayscale(100%);
+   
 }
 
+.tit{
+    display:none;
+    filter:grayscale(100%);
+}
