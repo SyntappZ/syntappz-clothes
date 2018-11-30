@@ -1,9 +1,15 @@
 // loading screen
 
-window.addEventListener('load', () => {
+window.addEventListener('load', function(){
+    let loadScreen = document.getElementById('loading');
+    loadScreen.style.opacity = '0';
+    setTimeout(removeLoadScreen, 500);
+})
+
+function removeLoadScreen(){
     let loadScreen = document.getElementById('loading');
     document.body.removeChild(loadScreen);
-});
+}
 
 // picture scroll
 
@@ -28,12 +34,15 @@ let = titles = document.getElementsByClassName('tit');
 
 
 
-console.log(titles[3])
+
 
 function changeImg(){
    
    document.slide.src = images[i];
    
+   if(innerWidth < 800){
+       images[i].style.display = 'none';
+   }
    
 
     if(i < images.length - 1){
@@ -62,7 +71,7 @@ function changeImg(){
         titles[4].style.display = 'block';
         titles[3].style.display = 'none';
     }
-
+   
 
 
     
