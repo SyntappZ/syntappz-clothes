@@ -4,6 +4,7 @@ window.addEventListener('load', function(){
     let loadScreen = document.getElementById('loading');
     loadScreen.style.opacity = '0';
     setTimeout(removeLoadScreen, 500);
+    changeImg();
 })
 
 function removeLoadScreen(){
@@ -14,71 +15,57 @@ function removeLoadScreen(){
 // picture scroll
 
 let i = 0;
-let images = [];
 let time = 4000;
-
-
-
-
-
-
-images[0] = '/img/slider/multi.jpg';
-images[1] = '/img/slider/casual.jpg';
-images[2] = '/img/slider/business.jpg';
-images[3] = '/img/slider/sportswear.jpg';
-images[4] = '/img/slider/dress.jpg';
-
-
-let = titles = document.getElementsByClassName('tit');
-
+let = images = document.getElementsByClassName('imgbg');
 
 
 
 
 
 function changeImg(){
-   
-   document.slide.src = images[i];
-   
-   if(innerWidth < 800){
-       images[i].style.display = 'none';
-   }
-   
+    let z = '0';
+    let o = '1';
 
-    if(i < images.length - 1){
-        i++;
-    }else{
-        i = 0;
-    }
-   
-    if(images[i] === images[1]){
-        titles[0].style.display = 'block';
-        titles[4].style.display = 'none';
-    }
-    if(images[i] === images[2]){
-        titles[1].style.display = 'block';
-        titles[0].style.display = 'none';
-    }
-    if(images[i] === images[3]){
-        titles[2].style.display = 'block';
-        titles[1].style.display = 'none';
-    }
-    if(images[i] === images[4]){
-        titles[3].style.display = 'block';
-        titles[2].style.display = 'none';
-    }
-    if(images[i] === images[0]){
-        titles[4].style.display = 'block';
-        titles[3].style.display = 'none';
-    }
-   
+       
+        if(i < images.length -1){
+            i++
+        }else{
+            i = 0;
+        }
+        if(images[i] === images[1]){
+            images[1].style.opacity = o;
+            images[0].style.opacity = z;
+        }
+        if(images[i] === images[2]){
+            images[2].style.opacity = o;
+            images[1].style.opacity = z;
 
+        }
+      
+        if(images[i] === images[3]){
+            images[3].style.opacity = o;
+            images[2].style.opacity = z;
 
+        }
+      
+        if(images[i] === images[4]){
+            images[4].style.opacity = o;
+            images[3].style.opacity = z;
+
+        }
+      
+        if(images[i] === images[0]){
+            images[0].style.opacity = o;
+            images[4].style.opacity = z;
+
+        }
     
-    setTimeout('changeImg()', time);
+    setTimeout(changeImg, time);
     
 }
-window.onload = changeImg;
+
+
+    
 
 
 

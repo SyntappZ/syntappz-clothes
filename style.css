@@ -311,11 +311,38 @@ aside h3:hover{
     height:100vh;
     text-align: left;
 }
-.sliderWrap img{
-   width:100%;
-   position: relative;
-   top:-100px;
-   z-index: -100;
+.imgbg{
+    width:100%;
+    height:100vh;
+    position:absolute;
+    filter:grayscale(100%);
+    transition: .5s ease-in-out;
+    opacity: 0;
+    z-index: -20;
+}
+#i1{
+   background: url('/img/slider/multi.jpg');
+   background-size:cover; 
+  
+}
+#i2{
+    background: url('/img/slider/casual.jpg');
+    background-size:cover; 
+    
+}
+#i3{
+    background: url('/img/slider/business.jpg');
+    background-size:cover; 
+    
+}
+#i4{
+    background: url('/img/slider/sportswear.jpg');
+    background-size:cover; 
+    
+}
+#i5{
+    background: url('/img/slider/dress.jpg');
+    background-size:cover; 
    
 }
 .sliderWrap div{
@@ -360,15 +387,15 @@ aside h3:hover{
 }
 #tit5{
     left:1200px;
-    top:600px;
+    top:650px;
     color: rgb(24, 24, 24);
    
 }
 
-.tit{
-    display:none;
-    filter:grayscale(100%);
-}
+
+    
+   
+
 
 /*----------- tablet responsive ------------*/
 
