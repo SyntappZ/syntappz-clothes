@@ -321,7 +321,7 @@ aside h3:hover{
     z-index: -20;
 }
 #i1{
-   background: url('/img/slider/multi.jpg');
+   background: url('/img/slider/multi.jpeg');
    background-size:cover; 
   
 }
@@ -331,12 +331,12 @@ aside h3:hover{
     
 }
 #i3{
-    background: url('/img/slider/business.jpg');
+    background: url('/img/slider/business.jpeg');
     background-size:cover; 
     
 }
 #i4{
-    background: url('/img/slider/sportswear.jpg');
+    background: url('/img/slider/sportswear.jpeg');
     background-size:cover; 
     
 }
